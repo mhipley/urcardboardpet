@@ -69,7 +69,6 @@ function init() {
   window.addEventListener('resize', resize, false);
   setTimeout(resize, 1);
 
-  // PLANTS
   function createSceneElement(textureArray, width, height, widthSegment, heightSegment, rotation, x, y, z){
     var texture = textureArray[Math.floor(Math.random() * textureArray.length)];
     var sceneGeometry = new THREE.PlaneGeometry(width, height, widthSegment, heightSegment);
@@ -311,7 +310,7 @@ function init() {
   var skybox_sides_geo = new THREE.CylinderGeometry( 100, 100, 400, 32 );
   var skybox_cap_geo = new THREE.Geometry();
   var r = 100.0;
-  for (var i=0; i<100; i++) {
+  for (var i = 0; i < 100; i++) {
     var a = i * 1/100 * Math.PI * 2;
     var z = Math.sin(a);
     var x = Math.cos(a);
@@ -361,19 +360,18 @@ function init() {
 
 
   // create the particle variables
+  function createParticleElements(){
+    
+  }
   var particleCountA = 30,
     particles = new THREE.Geometry(),
     pMaterial = new THREE.ParticleBasicMaterial({
       color: 0xFFFFFF,
       size: 20,
-      map: THREE.ImageUtils.loadTexture(
-        "./textures/petals/petal1.png"
-      ),
+      map: THREE.ImageUtils.loadTexture("./textures/petals/petal1.png"),
       transparent: true
     });
   particleCountA.name = "particleCountA";
-
-
 
   // now create the individual particles
   for (var p = 0; p < particleCountA; p++) {
@@ -390,7 +388,6 @@ function init() {
       0,        // x
       -Math.random(), // y
       0);       // z
-
     // add it to the geometry
     particles.vertices.push(particle);
   }
@@ -425,10 +422,7 @@ function init() {
         pZ = Math.random() * 500 - 250,
         particle = new THREE.Vector3(pX, pY, pZ);
 
-      particle.velocity = new THREE.Vector3(
-        0,        // x
-        -Math.random(), // y
-        0);       // z
+    particle.velocity = new THREE.Vector3(0, (- Math.random()), 0);
     particles.vertices.push(particle);
   }
 
