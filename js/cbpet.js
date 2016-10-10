@@ -70,30 +70,57 @@ function init() {
   setTimeout(resize, 1);
 
   // PLANTS
+  function createSceneElement(textureArray, width, height, widthSegment, heightSegment, rotation, x, y, z){
+    var texture = textureArray[Math.floor(Math.random() * textureArray.length)];
+    var sceneGeometry = new THREE.PlaneGeometry(width, height, widthSegment, heightSegment);
+    var mesh = new THREE.MeshBasicMaterial();
+    mesh.map = new THREE.ImageUtils.loadTexture(texture);
+    mesh.transparent = true;
+    mesh.side = THREE.DoubleSide;
+    mesh.depthWrite = false;
 
-  var pA_images = ["./textures/plants/plant1.png","./textures/plants/plant2.png","./textures/plants/plant3.png","./textures/plants/plant4.png"];
-  var pA = pA_images[Math.floor(Math.random() * pA_images.length)];
+    var sceneMesh = new THREE.Mesh(sceneGeometry, mesh);
+    sceneMesh.position.set(x, y, z);
+    sceneMesh.rotation.y = rotation;
+    return sceneMesh;
+  }
+  // var pA_images = ["./textures/plants/plant1.png","./textures/plants/plant2.png","./textures/plants/plant3.png","./textures/plants/plant4.png"];
+  // var pA = pA_images[Math.floor(Math.random() * pA_images.length)];
 
-  var plantA_w = 43.1, plantA_h = 72.3, plantA_w_s =1, plantA_h_s = 100;
-  var plantA_geometry = new THREE.PlaneGeometry( plantA_w, plantA_h, plantA_w_s, plantA_h_s );
-  //var material = new THREE.MeshBasicMaterial( {color: 0xffff00, side: THREE.DoubleSide} );
+  // var plantA_w = 43.1, plantA_h = 72.3, plantA_w_s =1, plantA_h_s = 100;
+  // var plantA_geometry = new THREE.PlaneGeometry( plantA_w, plantA_h, plantA_w_s, plantA_h_s );
+  // //var material = new THREE.MeshBasicMaterial( {color: 0xffff00, side: THREE.DoubleSide} );
 
-  var plantA_mat = new THREE.MeshBasicMaterial();
-  plantA_mat.map = new THREE.ImageUtils.loadTexture(
-    pA);
-  plantA_mat.transparent = true;
-  plantA_mat.side = THREE.DoubleSide;
-  plantA_mat.depthWrite = false;
-  // mat.color = new THREE.Color(0xff0000);
-  // for(var i=0; i<geometry.vertices.length/2; i++) {
-  //     geometry.vertices[2*i].position.z = Math.pow(2, i/20);
-  //     geometry.vertices[2*i+1].position.z = Math.pow(2, i/20);
-  // }
-  var plantA = new THREE.Mesh( plantA_geometry, plantA_mat );
+  // var plantA_mat = new THREE.MeshBasicMaterial();
+  // plantA_mat.map = new THREE.ImageUtils.loadTexture(pA);
+  // plantA_mat.transparent = true;
+  // plantA_mat.side = THREE.DoubleSide;
+  // plantA_mat.depthWrite = false;
+  // // mat.color = new THREE.Color(0xff0000);
+  // // for(var i=0; i<geometry.vertices.length/2; i++) {
+  // //     geometry.vertices[2*i].position.z = Math.pow(2, i/20);
+  // //     geometry.vertices[2*i+1].position.z = Math.pow(2, i/20);
+  // // }
+  // var plantA = new THREE.Mesh( plantA_geometry, plantA_mat );
 
-  plantA.position.set( 10, plantA_h / 2 - 3, plantA_w / 2 - 60);
-  plantA.rotation.y =  Math.PI / 2;
-  scene.add( plantA )
+  // plantA.position.set( 10, plantA_h / 2 - 3, plantA_w / 2 - 60);
+  // plantA.rotation.y =  Math.PI / 2;
+  // scene.add( plantA )
+  
+  var plants = ["./textures/plants/plant1.png","./textures/plants/plant2.png","./textures/plants/plant3.png","./textures/plants/plant4.png"];
+  var plantWidth = 43.1, plantHeight = 72.3, plantWidthS = 1, plantHeightS = 100;
+
+  scene.add(createSceneElement(
+      plants,
+      plantWidth,
+      plantHeight,
+      plantWidthS,
+      plantHeightS,
+      (Math.PI / 2),
+      10,
+      (plantHeight / 2 - 3),
+      (plantWidth / 2 - 60)
+    ));
 
 
   var pB_images = ["./textures/plants/plant1.png","./textures/plants/plant2.png","./textures/plants/plant3.png","./textures/plants/plant4.png"];
