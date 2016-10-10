@@ -84,32 +84,12 @@ function init() {
     sceneMesh.rotation.y = rotation;
     return sceneMesh;
   }
-  // var pA_images = ["./textures/plants/plant1.png","./textures/plants/plant2.png","./textures/plants/plant3.png","./textures/plants/plant4.png"];
-  // var pA = pA_images[Math.floor(Math.random() * pA_images.length)];
 
-  // var plantA_w = 43.1, plantA_h = 72.3, plantA_w_s =1, plantA_h_s = 100;
-  // var plantA_geometry = new THREE.PlaneGeometry( plantA_w, plantA_h, plantA_w_s, plantA_h_s );
-  // //var material = new THREE.MeshBasicMaterial( {color: 0xffff00, side: THREE.DoubleSide} );
-
-  // var plantA_mat = new THREE.MeshBasicMaterial();
-  // plantA_mat.map = new THREE.ImageUtils.loadTexture(pA);
-  // plantA_mat.transparent = true;
-  // plantA_mat.side = THREE.DoubleSide;
-  // plantA_mat.depthWrite = false;
-  // // mat.color = new THREE.Color(0xff0000);
-  // // for(var i=0; i<geometry.vertices.length/2; i++) {
-  // //     geometry.vertices[2*i].position.z = Math.pow(2, i/20);
-  // //     geometry.vertices[2*i+1].position.z = Math.pow(2, i/20);
-  // // }
-  // var plantA = new THREE.Mesh( plantA_geometry, plantA_mat );
-
-  // plantA.position.set( 10, plantA_h / 2 - 3, plantA_w / 2 - 60);
-  // plantA.rotation.y =  Math.PI / 2;
-  // scene.add( plantA )
-  
+  // PLANTS START
   var plants = ["./textures/plants/plant1.png","./textures/plants/plant2.png","./textures/plants/plant3.png","./textures/plants/plant4.png"];
   var plantWidth = 43.1, plantHeight = 72.3, plantWidthS = 1, plantHeightS = 100;
 
+  // First plant (Front row left)
   scene.add(createSceneElement(
       plants,
       plantWidth,
@@ -121,274 +101,195 @@ function init() {
       (plantHeight / 2 - 3),
       (plantWidth / 2 - 60)
     ));
+  // Second plant (Front row right)
+  scene.add(createSceneElement(
+      plants,
+      plantWidth,
+      plantHeight,
+      plantWidthS,
+      plantHeightS,
+      (- Math.PI / 2),
+      10,
+      (plantHeight / 2 - 5),
+      (plantWidth / 2 + 10)
+    ));
+  // Third plant (Front row middle)
+  scene.add(createSceneElement(
+      plants,
+      plantWidth,
+      plantHeight,
+      plantWidthS,
+      plantHeightS,
+      (- Math.PI / 2),
+      30,
+      (plantHeight / 2),
+      (plantWidth / 2 - 10)
+    ));
+  // Fourth plant (Mid row Left)
+  scene.add(createSceneElement(
+      plants,
+      plantWidth,
+      plantHeight,
+      plantWidthS,
+      plantHeightS,
+      (Math.PI / 2),
+      60,
+      (plantHeight / 2 + 20),
+      (plantWidth / 2 - 70)
+    ));
+  // Fifth plant (Back row left)
+  scene.add(createSceneElement(
+      plants,
+      plantWidth,
+      plantHeight,
+      plantWidthS,
+      plantHeightS,
+      (Math.PI / 2),
+      70,
+      (plantHeight / 2 - 3),
+      (plantWidth / 2 - 60)
+    ));
+  // Sixth plant (Middle row right)
+  scene.add(createSceneElement(
+      plants,
+      plantWidth,
+      plantHeight,
+      plantWidthS,
+      plantHeightS,
+      (- Math.PI / 2),
+      80,
+      (plantHeight / 2 - 5),
+      (plantWidth / 2 + 10)
+    ));
+  // Seventh plant (Middle row middle)
+  scene.add(createSceneElement(
+      plants,
+      plantWidth,
+      plantHeight,
+      plantWidthS,
+      plantHeightS,
+      (- Math.PI / 2),
+      90,
+      (plantHeight / 2),
+      (plantWidth / 2 - 3)
+    ));
+  // Eighth plant (Middle row left)
+  scene.add(createSceneElement(
+      plants,
+      plantWidth,
+      plantHeight,
+      plantWidthS,
+      plantHeightS,
+      (Math.PI / 2),
+      90,
+      (plantHeight / 2 + 20),
+      (plantWidth / 2 - 70)
+    ));  
+  // PLANTS END
 
 
-  var pB_images = ["./textures/plants/plant1.png","./textures/plants/plant2.png","./textures/plants/plant3.png","./textures/plants/plant4.png"];
-  var pB = pB_images[Math.floor(Math.random() * pB_images.length)];
-
-
-  var plantB_w = 43.1, plantB_h = 72.3, plantB_w_s =1, plantB_h_s = 100;
-  var plantB_geometry = new THREE.PlaneGeometry( plantB_w, plantB_h, plantB_w_s, plantB_h_s );
-
-  var plantB_mat = new THREE.MeshBasicMaterial();
-  plantB_mat.map = new THREE.ImageUtils.loadTexture(
-    pB);
-  plantB_mat.transparent = true;
-  plantB_mat.side = THREE.DoubleSide;
-  plantB_mat.depthWrite = false;
-
-  var plantB = new THREE.Mesh( plantB_geometry, plantB_mat );
-
-  plantB.position.set( 10, plantB_h / 2 - 5, plantB_w / 2 + 10);
-  plantB.rotation.y = - Math.PI / 2;
-  scene.add( plantB );
-
-
-  var pC_images = ["./textures/plants/plant1.png","./textures/plants/plant2.png","./textures/plants/plant3.png","./textures/plants/plant4.png"];
-  var pC = pC_images[Math.floor(Math.random() * pC_images.length)];
-
-  var plantC_w = 43.1, plantC_h = 72.3, plantC_w_s =1, plantC_h_s = 100;
-  var plantC_geometry = new THREE.PlaneGeometry( plantC_w, plantC_h, plantC_w_s, plantC_h_s );
-
-  var plantC_mat = new THREE.MeshBasicMaterial();
-  plantC_mat.map = new THREE.ImageUtils.loadTexture(
-    pC);
-  plantC_mat.transparent = true;
-  plantC_mat.side = THREE.DoubleSide;
-  plantC_mat.depthWrite = false;
-
-  var plantC = new THREE.Mesh( plantC_geometry, plantC_mat );
-
-  plantC.position.set( 30, plantC_h / 2, plantC_w / 2 - 3 );
-  plantC.rotation.y = - Math.PI / 2;
-  scene.add( plantC );
-
-
-  var pD_images = ["./textures/plants/plant1.png","./textures/plants/plant2.png","./textures/plants/plant3.png","./textures/plants/plant4.png"];
-  var pD = pD_images[Math.floor(Math.random() * pD_images.length)];
-
-  var plantD_w = 43.1, plantD_h = 72.3, plantD_w_s =1, plantD_h_s = 100;
-  var plantD_geometry = new THREE.PlaneGeometry( plantD_w, plantD_h, plantD_w_s, plantD_h_s );
-
-  var plantD_mat = new THREE.MeshBasicMaterial();
-  plantD_mat.map = new THREE.ImageUtils.loadTexture(
-    pD);
-  plantD_mat.transparent = true;
-  plantD_mat.side = THREE.DoubleSide;
-  plantD_mat.depthWrite = false;
-
-  var plantD = new THREE.Mesh( plantD_geometry, plantD_mat );
-
-  plantD.position.set( 60, plantD_h / 2 + 20 , plantD_w / 2 - 70);
-  plantD.rotation.y =  Math.PI / 2;
-  scene.add( plantD )
-
-  var pE_images = ["./textures/plants/plant1.png","./textures/plants/plant2.png","./textures/plants/plant3.png","./textures/plants/plant4.png"];
-  var pE = pE_images[Math.floor(Math.random() * pE_images.length)];
-
-  var plantE_w = 43.1, plantE_h = 72.3, plantE_w_s =1, plantE_h_s = 100;
-  var plantE_geometry = new THREE.PlaneGeometry( plantE_w, plantE_h, plantE_w_s, plantE_h_s );
-
-  var plantE_mat = new THREE.MeshBasicMaterial();
-  plantE_mat.map = new THREE.ImageUtils.loadTexture(
-    pE);
-  plantE_mat.transparent = true;
-  plantE_mat.side = THREE.DoubleSide;
-  plantE_mat.depthWrite = false;
-  var plantE = new THREE.Mesh( plantE_geometry, plantE_mat );
-
-  plantE.position.set( 70, plantE_h / 2 - 3, plantE_w / 2 - 60);
-  plantE.rotation.y =  Math.PI / 2;
-  scene.add( plantE )
-
-
-  var pF_images = ["./textures/plants/plant1.png","./textures/plants/plant2.png","./textures/plants/plant3.png","./textures/plants/plant4.png"];
-  var pF = pF_images[Math.floor(Math.random() * pF_images.length)];
-
-
-  var plantF_w = 43.1, plantF_h = 72.3, plantF_w_s =1, plantF_h_s = 100;
-  var plantF_geometry = new THREE.PlaneGeometry( plantF_w, plantF_h, plantF_w_s, plantF_h_s );
-
-  var plantF_mat = new THREE.MeshBasicMaterial();
-  plantF_mat.map = new THREE.ImageUtils.loadTexture(
-    pF);
-  plantF_mat.transparent = true;
-  plantF_mat.side = THREE.DoubleSide;
-  plantF_mat.depthWrite = false;
-
-  var plantF = new THREE.Mesh( plantF_geometry, plantF_mat );
-
-  plantF.position.set( 80, plantF_h / 2 - 5, plantF_w / 2 + 10);
-  plantF.rotation.y = - Math.PI / 2;
-  scene.add( plantF );
-
-
-  var pG_images = ["./textures/plants/plant1.png","./textures/plants/plant2.png","./textures/plants/plant3.png","./textures/plants/plant4.png"];
-  var pG = pG_images[Math.floor(Math.random() * pG_images.length)];
-
-  var plantG_w = 43.1, plantG_h = 72.3, plantG_w_s =1, plantG_h_s = 100;
-  var plantG_geometry = new THREE.PlaneGeometry( plantG_w, plantG_h, plantG_w_s, plantG_h_s );
-
-  var plantG_mat = new THREE.MeshBasicMaterial();
-  plantG_mat.map = new THREE.ImageUtils.loadTexture(
-    pG);
-  plantG_mat.transparent = true;
-  plantG_mat.side = THREE.DoubleSide;
-  plantG_mat.depthWrite = false;
-
-  var plantG = new THREE.Mesh( plantG_geometry, plantG_mat );
-
-  plantG.position.set( 90, plantG_h / 2, plantG_w / 2 - 3 );
-  plantG.rotation.y = - Math.PI / 2;
-  scene.add( plantG );
-
-
-  var pH_images = ["./textures/plants/plant1.png","./textures/plants/plant2.png","./textures/plants/plant3.png","./textures/plants/plant4.png"];
-  var pH = pH_images[Math.floor(Math.random() * pH_images.length)];
-
-  var plantH_w = 43.1, plantH_h = 72.3, plantH_w_s =1, plantH_h_s = 100;
-  var plantH_geometry = new THREE.PlaneGeometry( plantH_w, plantH_h, plantH_w_s, plantH_h_s );
-
-  var plantH_mat = new THREE.MeshBasicMaterial();
-  plantH_mat.map = new THREE.ImageUtils.loadTexture(
-    pH);
-  plantH_mat.transparent = true;
-  plantH_mat.side = THREE.DoubleSide;
-  plantH_mat.depthWrite = false;
-
-  var plantH = new THREE.Mesh( plantH_geometry, plantH_mat );
-
-  plantH.position.set( 90, plantH_h / 2 + 20 , plantH_w / 2 - 70);
-  plantH.rotation.y =  Math.PI / 2;
-  scene.add( plantH )
-
-
-  //END PLANTS
-
-
-
-
-  var hand_images = ["./textures/hands/hand1.png","./textures/hands/hand2.png"];
-  var hand_img = hand_images[Math.floor(Math.random() * hand_images.length)];
-
-  var hand_w = 39.0, hand_h = 59.6, hand_w_s =1, hand_h_s = 100;
-  var hand_geometry = new THREE.PlaneGeometry( hand_w, hand_h, hand_w_s, hand_h_s );
-
-  var hand_mat = new THREE.MeshBasicMaterial();
-  hand_mat.map = new THREE.ImageUtils.loadTexture(
-    hand_img);
-  hand_mat.transparent = true;
-  hand_mat.side = THREE.DoubleSide;
-  hand_mat.depthWrite = false;
-
-  var hand = new THREE.Mesh( hand_geometry, hand_mat );
-
-  hand.position.set( 30, hand_h / 2 - 5, hand_w / 2 - 46);
-  hand.rotation.y = - Math.PI / 2;
+  var handImages = ["./textures/hands/hand1.png","./textures/hands/hand2.png"];
+  var handWidth = 39.0, handHeight = 59.6, handWidthS = 1, handHeightS = 100;
+  var hand = createSceneElement(
+      handImages,
+      handWidth,
+      handHeight,
+      handWidthS,
+      handHeightS,
+      (- Math.PI / 2),
+      30,
+      (handHeight / 2 - 5),
+      (handWidth / 2 - 46)
+    );
   hand.name = "hand";
-  scene.add( hand );
+  scene.add(hand);
 
 
-  var tuft_images = ["./textures/tuft/tuft1.png","./textures/tuft/tuft2.png","./textures/tuft/tuft3.png"];
-  var tuft_img = tuft_images[Math.floor(Math.random() * tuft_images.length)];
-
-  var tuft_w = 20, tuft_h = 17.2, tuft_w_s =1, tuft_h_s = 100;
-  var tuft_geometry = new THREE.PlaneGeometry( tuft_w, tuft_h, tuft_w_s, tuft_h_s );
-
-  var tuft_mat = new THREE.MeshBasicMaterial();
-  tuft_mat.map = new THREE.ImageUtils.loadTexture(
-    tuft_img);
-  tuft_mat.transparent = true;
-  tuft_mat.side = THREE.DoubleSide;
-  tuft_mat.depthWrite = false;
-  var tuft = new THREE.Mesh( tuft_geometry, tuft_mat );
-
-  tuft.position.set( 30, tuft_h / 2 + 54.4, tuft_w / 2 - 10);
-  tuft.rotation.y = - Math.PI / 2 + 0.7;
-  scene.add( tuft );
+  var tufts = ["./textures/tuft/tuft1.png","./textures/tuft/tuft2.png","./textures/tuft/tuft3.png"];
+  var tuftWidth = 20, tuftHeight = 17.2, tuftWidthS =1, tuftHeightS = 100;
+  scene.add(createSceneElement(
+      tufts,
+      tuftWidth,
+      tuftHeight,
+      tuftWidthS,
+      tuftHeightS,
+      (Math.PI / 2),
+      90,
+      (tuftHeight / 2 + 20),
+      (tuftWidth / 2 - 70)
+    ));  
 
 
-  var shirt_images = ["./textures/shirts/shirt1.png","./textures/shirts/shirt2.png"];
-  var shirt_img = shirt_images[Math.floor(Math.random() * shirt_images.length)];
-
-  var shirt_w = 57.5, shirt_h = 30.1, shirt_w_s =1, shirt_h_s = 100;
-  var shirt_geometry = new THREE.PlaneGeometry( shirt_w, shirt_h, shirt_w_s, shirt_h_s );
-
-  var shirt_mat = new THREE.MeshBasicMaterial();
-  shirt_mat.map = new THREE.ImageUtils.loadTexture(
-    shirt_img);
-  shirt_mat.transparent = true;
-  shirt_mat.side = THREE.DoubleSide;
-  shirt_mat.depthWrite = false;
-  var shirt = new THREE.Mesh( shirt_geometry, shirt_mat );
-
-  shirt.position.set( 40, shirt_h / 2 + 3, shirt_w / 2 - 30);
-  shirt.rotation.y = - Math.PI / 2;
-  scene.add( shirt );
-
-  var hair_images = ["./textures/hair/hair1.png","./textures/hair/hair2.png","./textures/hair/hair3.png"];
-  var hair_img = hair_images[Math.floor(Math.random() * hair_images.length)];
-
-  var hair_w = 36.8, hair_h = 35.5, hair_w_s =1, hair_h_s = 100;
-  var hair_geometry = new THREE.PlaneGeometry( hair_w, hair_h, hair_w_s, hair_h_s );
-
-  var hair_mat = new THREE.MeshBasicMaterial();
-  hair_mat.map = new THREE.ImageUtils.loadTexture(
-    hair_img);
-  hair_mat.transparent = true;
-  hair_mat.side = THREE.DoubleSide;
-  hair_mat.depthWrite = false;
-  var hair = new THREE.Mesh( hair_geometry, hair_mat );
-
-  hair.position.set( 35, hair_h / 2 + 45, hair_w / 2 - 23.5);
-  hair.rotation.y = - Math.PI / 2;
-  scene.add( hair );
-
-  var eyebrows_w = 20.9, eyebrows_h = 2.6, eyebrows_w_s =1, eyebrows_h_s = 100;
-  var eyebrows_geometry = new THREE.PlaneGeometry( eyebrows_w, eyebrows_h, eyebrows_w_s, eyebrows_h_s );
-
-  var eyebrows_mat = new THREE.MeshBasicMaterial();
-  eyebrows_mat.map = new THREE.ImageUtils.loadTexture(
-    "./textures/eyebrows.png");
-  eyebrows_mat.transparent = true;
-  eyebrows_mat.side = THREE.DoubleSide;
-  eyebrows_mat.depthWrite = false;
-  var eyebrows = new THREE.Mesh( eyebrows_geometry, eyebrows_mat );
-
-  eyebrows.position.set( 40, eyebrows_h / 2 + 54.5, eyebrows_w / 2 - 14.1);
-  eyebrows.rotation.y = - Math.PI / 2;
-  scene.add( eyebrows );
+  var shirts = ["./textures/shirts/shirt1.png","./textures/shirts/shirt2.png"];
+  var shirtWidth = 57.5, shirtHeight = 30.1, shirtWidthS =1, shirtHeightS = 100;
+  scene.add(createSceneElement(
+      shirts,
+      shirtWidth,
+      shirtHeight,
+      shirtWidthS,
+      shirtHeightS,
+      (-Math.PI / 2),
+      40,
+      (shirtHeight / 2 + 3),
+      (shirtWidth / 2 - 30)
+    ));  
 
 
-  var eyes_w = 19.2, eyes_h = 3.5, eyes_w_s =1, eyes_h_s = 100;
-  var eyes_geometry = new THREE.PlaneGeometry( eyes_w, eyes_h, eyes_w_s, eyes_h_s );
+  var hairs = ["./textures/hair/hair1.png","./textures/hair/hair2.png","./textures/hair/hair3.png"];
+  var hairWidth = 36.8, hairHeight = 35.5, hairWidthS =1, hairHeightS = 100;
+  scene.add(createSceneElement(
+      hairs,
+      hairWidth,
+      hairHeight,
+      hairWidthS,
+      hairHeightS,
+      (- Math.PI / 2),
+      35,
+      (hairHeight / 2 + 45),
+      (hairWidth / 2 - 23.5)
+    ));  
 
-  var eyes_mat = new THREE.MeshBasicMaterial();
-  eyes_mat.map = new THREE.ImageUtils.loadTexture(
-    "./textures/eyes.gif");
-  eyes_mat.transparent = true;
-  eyes_mat.side = THREE.DoubleSide;
-  eyes_mat.depthWrite = false;
-  var eyes = new THREE.Mesh( eyes_geometry, eyes_mat );
 
-  eyes.position.set( 40, eyes_h / 2 + 52, eyes_w / 2 - 13.1);
-  eyes.rotation.y = - Math.PI / 2;
-  scene.add( eyes );
+  var eyebrowsWidth = 20.9, eyebrowsHeight = 2.6, eyebrowsWidthS = 1, eyebrowsHeightS = 100;
+  scene.add(createSceneElement(
+      ["./textures/eyebrows.png"],
+      eyebrowsWidth,
+      eyebrowsHeight,
+      eyebrowsWidthS,
+      eyebrowsHeightS,
+      (- Math.PI / 2),
+      40,
+      (eyebrowsHeight / 2 + 54.5),
+      (eyebrowsWidth / 2 - 14.1)
+    ));  
 
-  var body_w = 54.3, body_h = 70.9, body_w_s =1, body_h_s = 100;
-  var body_geometry = new THREE.PlaneGeometry( body_w, body_h, body_w_s, body_h_s );
 
-  var body_mat = new THREE.MeshBasicMaterial();
-  body_mat.map = new THREE.ImageUtils.loadTexture(
-    "./textures/body.png");
-  body_mat.transparent = true;
-  body_mat.side = THREE.DoubleSide;
-  body_mat.depthWrite = false;
-  var body = new THREE.Mesh( body_geometry, body_mat );
+  var eyesWidth = 19.2, eyesHeight = 3.5, eyesWidthS =1, eyesHeightS = 100;
+  scene.add(createSceneElement(
+      ["./textures/eyes.gif"],
+      eyesWidth,
+      eyesHeight,
+      eyesWidthS,
+      eyesHeightS,
+      (- Math.PI / 2),
+      40,
+      (eyesHeight / 2 + 52),
+      (eyesWidth / 2 - 13.1)
+    ));  
 
-  body.position.set( 50, body_h / 2 + 5, body_w / 2 - 26.7);
-  body.rotation.y = - Math.PI / 2;
-  scene.add( body );
+
+  var bodyWidth = 54.3, bodyHeight = 70.9, bodyWidthS =1, bodyHeightS = 100;
+  scene.add(createSceneElement(
+      ["./textures/body.png"],
+      bodyWidth,
+      bodyHeight,
+      bodyWidthS,
+      bodyHeightS,
+      (- Math.PI / 2),
+      50,
+      (bodyHeight / 2 + 5),
+      (bodyWidth / 2 - 26.7)
+    ));  
 
 
   var text_images = ["./textures/text/text1.png","./textures/text/text2.png","./textures/text/text3.png","./textures/text/text4.png"];
