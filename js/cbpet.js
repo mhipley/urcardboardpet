@@ -66,10 +66,46 @@ function init() {
   // mesh.rotation.x = -Math.PI / 2;
   // scene.add(mesh);
 
+  if(location.search){
+    var images = imagesFromUrl(location.search.split("?q=")[1]);
+  } else {
+    var images = imagesFromUrl();
+  }
+
   window.addEventListener('resize', resize, false);
   setTimeout(resize, 1);
 
+  function imagesFromUrl(data){
+    // return an object with all the approriate images. For random, include all
+    var hands = ["./textures/hands/hand1.png","./textures/hands/hand2.png"];
+    var tufts = ["./textures/tuft/tuft1.png","./textures/tuft/tuft2.png","./textures/tuft/tuft3.png"];
+    var shirts = ["./textures/shirts/shirt1.png","./textures/shirts/shirt2.png"];
+    var hairs = ["./textures/hair/hair1.png","./textures/hair/hair2.png","./textures/hair/hair3.png"];
+    var eyebrows = ["./textures/eyebrows.png"];
+    var texts = ["./textures/text/text1.png","./textures/text/text2.png","./textures/text/text3.png","./textures/text/text4.png"];
+    var eyes = ["./textures/eyes.gif"];
+    var body = ["./textures/body.png"];
+    var bGImages = ["./textures/backgrounds/background1.png","./textures/backgrounds/background2.png"];
+    if(typeof data == "undefined" || true){
+      return {
+        hands: hands,
+        tufts: tufts,
+        shirts: shirts,
+        hairs: hairs,
+        eyebrows: eyebrows,
+        texts: texts,
+        eyes: eyes,
+        body: body,
+        bGImages: bGImages
+      }
+    }
+
+    var searchTerms = data.match(/.{1}/g);
+    var images = {};
+  }
+
   function createSceneElement(textureArray, width, height, widthSegment, heightSegment, rotation, x, y, z){
+    // debugger;
     var texture = textureArray[Math.floor(Math.random() * textureArray.length)];
     var sceneGeometry = new THREE.PlaneGeometry(width, height, widthSegment, heightSegment);
     var mesh = new THREE.MeshBasicMaterial();
@@ -186,11 +222,9 @@ function init() {
     ));  
   // PLANTS END
 
-
-  var handImages = ["./textures/hands/hand1.png","./textures/hands/hand2.png"];
   var handWidth = 39.0, handHeight = 59.6, handWidthS = 1, handHeightS = 100;
   var hand = createSceneElement(
-      handImages,
+      images.hands,
       handWidth,
       handHeight,
       handWidthS,
@@ -203,11 +237,9 @@ function init() {
   hand.name = "hand";
   scene.add(hand);
 
-
-  var tufts = ["./textures/tuft/tuft1.png","./textures/tuft/tuft2.png","./textures/tuft/tuft3.png"];
   var tuftWidth = 20, tuftHeight = 17.2, tuftWidthS =1, tuftHeightS = 100;
   scene.add(createSceneElement(
-      tufts,
+      images.tufts,
       tuftWidth,
       tuftHeight,
       tuftWidthS,
@@ -218,11 +250,9 @@ function init() {
       (tuftWidth / 2 - 70)
     ));  
 
-
-  var shirts = ["./textures/shirts/shirt1.png","./textures/shirts/shirt2.png"];
   var shirtWidth = 57.5, shirtHeight = 30.1, shirtWidthS =1, shirtHeightS = 100;
   scene.add(createSceneElement(
-      shirts,
+      images.shirts,
       shirtWidth,
       shirtHeight,
       shirtWidthS,
@@ -233,11 +263,9 @@ function init() {
       (shirtWidth / 2 - 30)
     ));  
 
-
-  var hairs = ["./textures/hair/hair1.png","./textures/hair/hair2.png","./textures/hair/hair3.png"];
   var hairWidth = 36.8, hairHeight = 35.5, hairWidthS =1, hairHeightS = 100;
   scene.add(createSceneElement(
-      hairs,
+      images.hairs,
       hairWidth,
       hairHeight,
       hairWidthS,
@@ -251,7 +279,7 @@ function init() {
 
   var eyebrowsWidth = 20.9, eyebrowsHeight = 2.6, eyebrowsWidthS = 1, eyebrowsHeightS = 100;
   scene.add(createSceneElement(
-      ["./textures/eyebrows.png"],
+      images.eyebrows,
       eyebrowsWidth,
       eyebrowsHeight,
       eyebrowsWidthS,
@@ -265,7 +293,7 @@ function init() {
 
   var eyesWidth = 19.2, eyesHeight = 3.5, eyesWidthS =1, eyesHeightS = 100;
   scene.add(createSceneElement(
-      ["./textures/eyes.gif"],
+      images.eyes,
       eyesWidth,
       eyesHeight,
       eyesWidthS,
@@ -279,7 +307,7 @@ function init() {
 
   var bodyWidth = 54.3, bodyHeight = 70.9, bodyWidthS =1, bodyHeightS = 100;
   scene.add(createSceneElement(
-      ["./textures/body.png"],
+      images.body,
       bodyWidth,
       bodyHeight,
       bodyWidthS,
@@ -290,9 +318,7 @@ function init() {
       (bodyWidth / 2 - 26.7)
     ));  
 
-
-  var text_images = ["./textures/text/text1.png","./textures/text/text2.png","./textures/text/text3.png","./textures/text/text4.png"];
-  var text_img = text_images[Math.floor(Math.random() * text_images.length)];
+  var text_img = images.texts[Math.floor(Math.random() * images.texts.length)];
 
   var text_cyl = new THREE.CylinderGeometry( 90, 90, 30, 32, 20, true );
   var text_mat = new THREE.MeshBasicMaterial();
@@ -331,8 +357,7 @@ function init() {
   }
   // skybox_cap_geo.computeCentroids();
   // skybox_cap_geo.computeFaceNormals();
-  var bG_images = ["./textures/backgrounds/background1.png","./textures/backgrounds/background2.png"];
-  var bG = bG_images[Math.floor(Math.random() * bG_images.length)];
+  var bG = images.bGImages[Math.floor(Math.random() * images.bGImages.length)];
   var skybox_sides_texture = new THREE.ImageUtils.loadTexture(bG);
   // var skybox_cap_texture =
   //   THREE.ImageUtils.loadTexture("textures/patterns/skybox_top.png");
@@ -361,7 +386,7 @@ function init() {
 
   // create the particle variables
   function createParticleElements(){
-    
+
   }
   var particleCountA = 30,
     particles = new THREE.Geometry(),
