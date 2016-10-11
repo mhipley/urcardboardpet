@@ -86,7 +86,7 @@ function init() {
     var eyes = ["./textures/eyes.gif"];
     var body = ["./textures/body.png"];
     var bGImages = ["./textures/backgrounds/background1.png","./textures/backgrounds/background2.png"];
-    if(typeof data == "undefined" || true){
+    if(typeof data == "undefined"){
       return {
         hands: hands,
         tufts: tufts,
@@ -99,9 +99,27 @@ function init() {
         bGImages: bGImages
       }
     }
-
-    var searchTerms = data.match(/.{1}/g);
-    var images = {};
+    try {
+      var images =  {
+        hands: [hands[data.charCodeAt(0) - 97]],
+        tufts: [tufts[data.charCodeAt(1) - 97]],
+        shirts: [shirts[data.charCodeAt(2) - 97]],
+        hairs: [hairs[data.charCodeAt(3) - 97]],
+        eyebrows: [eyebrows[data.charCodeAt(4) - 97]],
+        texts: [texts[data.charCodeAt(5) - 97]],
+        eyes: [eyes[data.charCodeAt(6) - 97]],
+        body: [body[data.charCodeAt(7) - 97]],
+        bGImages: [bGImages[data.charCodeAt(8) - 97]]
+      };
+      for(var key in images){
+        if(typeof images[key][0] == "undefined"){
+          images[key] = eval(key);
+        }
+      }
+      return images;
+    } catch(e){
+      return imagesFromUrl();
+    }
   }
 
   function createSceneElement(textureArray, width, height, widthSegment, heightSegment, rotation, x, y, z){
