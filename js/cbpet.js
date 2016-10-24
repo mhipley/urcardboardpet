@@ -13,6 +13,11 @@ function init() {
 
   camera = new THREE.PerspectiveCamera(90, 1, 0.001, 700);
   camera.position.set(-30, 25, 0);
+
+  // VReticle initialization
+
+  reticle = vreticle.Reticle(camera);
+
   scene.add(camera);
 
   controls = new THREE.OrbitControls(camera, element);
@@ -269,7 +274,7 @@ function init() {
     ));  
 
   var shirtWidth = 57.5, shirtHeight = 30.1, shirtWidthS =1, shirtHeightS = 100;
-  scene.add(createSceneElement(
+  var shirt = createSceneElement(
       images.shirts,
       shirtWidth,
       shirtHeight,
@@ -279,7 +284,32 @@ function init() {
       40,
       (shirtHeight / 2 + 3),
       (shirtWidth / 2 - 30)
-    ));  
+    );
+  scene.add(shirt);
+
+
+    // Create 3D objects.
+  var geometry = new THREE.BoxGeometry(0.3, 0.3, 0.3);
+  var material = new THREE.MeshNormalMaterial();
+  var cube = new THREE.Mesh(geometry, material);
+  reticle.add_collider(cube);
+  cube.ongazelong = function(){
+    this.material = reticle.get_random_hex_material();
+  }
+  cube.ongazeover = function(){
+    this.material = reticle.get_random_hex_material();
+  }
+  cube.ongazeout = function(){
+    this.material = reticle.default_material();
+  }
+  // Position cube mesh
+  cube.position.x = 20;
+  cube.position.y = 20;
+  cube.position.z = 0;
+  // Add cube mesh to your three.js scene
+  // scene.add(cube);
+  camera.add(cube);
+  cube.position.set( 0, 0, -10 );
 
   var hairWidth = 36.8, hairHeight = 35.5, hairWidthS =1, hairHeightS = 100;
   scene.add(createSceneElement(
@@ -901,7 +931,7 @@ function render(dt) {
 
 function animate(t) {
   requestAnimationFrame(animate);
-
+  // reticle.reticle_loop();
   update(clock.getDelta());
   render(clock.getDelta());
 }
