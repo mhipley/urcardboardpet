@@ -17,6 +17,34 @@
         left: 0;
         right: 0;
         bottom: 0;
+        display: none;
+      }
+      #menu-body {
+        background-color: black;
+        height: 100vh;
+        width: 100%;
+        display: block;
+        position: relative;
+      }
+      #menu-container {
+        position: absolute;
+        margin: auto;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background-color: #e7e7e7;
+        height: 244px;
+        width: 244px;
+        padding: 10px;
+      }
+      .menu-option {
+        background-color: #666;
+        height: 110px;
+        width: 110px;
+        display: inline-block;
+        margin: 5px;
+        background-size: 100% 100%;
       }
     </style>
   <script src="js/jquery-1.11.3.min.js"></script>
@@ -29,10 +57,27 @@
 
   </head>
   <body>
-    <div id="example"></div>
+    <div id="menu-body">
+      <div id="menu-container">
+        <div id="option-1" class="menu-option">
+          
+        </div>
+        <div id="option-2" class="menu-option">
+          
+        </div>
+        <div id="option-3" class="menu-option">
+          
+        </div>
+        <div id="option-4" class="menu-option">
+          
+        </div>
+      </div>
+    </div>
+    <div id="cbpet-body"></div>
   </body>
 
   <script src="js/cbpet.js"></script>
+  <script src="js/cbmenu.js"></script>
   <script type="text/javascript">
     window.onload = function() {
 
@@ -51,14 +96,16 @@
       function shakeEventDidOccur () {
         location.reload(true);
       }
-    };  
+    };
+    var Menu = new CBMenu();
     var camera, scene, renderer;
     var effect, controls;
     var element, container;
 
     var clock = new THREE.Clock();
     
-    init();
-    animate();  
+
+    // init();
+    // animate();  
   </script>
 </html>
