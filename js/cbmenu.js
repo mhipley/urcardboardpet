@@ -7,7 +7,7 @@ function CBMenu(){
 
   this.currentPanel = 1;
   this.panel1 = {
-    query: "What is this example question?",
+    query: "What is this example question?1",
     options: [
         {
           value: "hand",
@@ -28,7 +28,7 @@ function CBMenu(){
       ]
   };
   this.panel2 = {
-    query: "What is this example question?",
+    query: "What is this example question?2",
     options: [
         {
           value: "hand",
@@ -49,7 +49,7 @@ function CBMenu(){
       ]
   };
   this.panel3 = {
-    query: "What is this example question?",
+    query: "What is this example question?3",
     options: [
         {
           value: "hand",
@@ -70,7 +70,7 @@ function CBMenu(){
       ]
   };
   this.panel4 = {
-    query: "What is this example question?",
+    query: "What is this example question?4",
     options: [
         {
           value: "hand",
@@ -91,7 +91,7 @@ function CBMenu(){
       ]
   };
   this.panel5 = {
-    query: "What is this example question?",
+    query: "What is this example question?5",
     options: [
         {
           value: "hand",
@@ -129,6 +129,7 @@ function CBMenu(){
   }
   this.setPanel = function(panelData){
     var menuOptions = $('.menu-option');
+    $('#menu-question').text(panelData.query);
     for(var i = 0; i < 4; i++){
       $(menuOptions[i])
         .css('background-image', 'url('+ panelData.options[i].texture + ')')
@@ -143,8 +144,6 @@ function CBMenu(){
     $('#cbpet-body').show();
     $('#menu-body').remove();
     window.location.search = 'q=cat';
-    // init();
-    // animate();
   };
 
   // Initialization
