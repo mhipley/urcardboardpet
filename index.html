@@ -11,13 +11,12 @@
         margin: 0px;
         overflow: hidden;
       }
-      #example {
+      #cbpet-body {
         position: absolute;
         top: 0;
         left: 0;
         right: 0;
         bottom: 0;
-        display: none;
       }
       #menu-body {
         background-color: black;
@@ -25,6 +24,7 @@
         width: 100%;
         display: block;
         position: relative;
+        display: none;
       }
       #menu-container {
         position: absolute;
@@ -97,15 +97,16 @@
         location.reload(true);
       }
     };
-    var Menu = new CBMenu();
     var camera, scene, renderer;
     var effect, controls;
     var element, container;
 
     var clock = new THREE.Clock();
-    
-
-    // init();
-    // animate();  
+    if(location.search.split("?q=")[1] == 'menu'){
+      var Menu = new CBMenu();
+    } else {
+      init();
+      animate();  
+    }
   </script>
 </html>

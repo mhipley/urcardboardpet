@@ -123,8 +123,9 @@ function CBMenu(){
     if(typeof Menu['panel' + Menu.currentPanel] == "undefined"){
       // Exit and set-up Cardboard Pet
       Menu.complete();
+    } else {
+      Menu.setPanel(Menu['panel' + Menu.currentPanel]);
     }
-    Menu.setPanel(Menu['panel' + Menu.currentPanel]);
   }
   this.setPanel = function(panelData){
     var menuOptions = $('.menu-option');
@@ -136,10 +137,19 @@ function CBMenu(){
   }
   this.complete = function(){
     // Take the choices and create a url for the Pet
-    debugger;
+    // Logic to determine choices and corresponding url values will need some work
+
+    // For now, just loads the VR Pet with a random parameter
+    $('#cbpet-body').show();
+    $('#menu-body').remove();
+    window.location.search = 'q=cat';
+    // init();
+    // animate();
   };
 
   // Initialization
   this.setPanel(this.panel1);
+  $('#menu-body').show();
+  $('#cbpet-body').hide();
   $('.menu-option').click(this.clickPanel);
 }
