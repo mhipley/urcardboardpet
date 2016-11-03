@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>UrBoyfriend</title>
+  <style type="text/css">
+    * {
+      box-sizing: border-box;
+    }
+    img {
+        margin: 0 auto;
+    }
+    #url {
+      margin: 10vh 0;
+      font-size: 24px;
+      display: block;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <a id="url"></a>
+  <div id="qrcode"></div>
+</body>
+  <script src="js/jquery-1.11.3.min.js"></script>
+  <script src="js/third-party/qrcode.js"></script>
+  <script>
+    var search = location.search.split('=')[1];
+    var text = '';
+    switch(search){
+      case 'abcdef':
+        text = 'some_dude'
+        break;
+      default:
+        text = 'home'
+        break;
+    }
+    $("#url").attr('href','index.html').text(text);
+    
+    var qrcode = new QRCode("qrcode", {
+        text: text,
+        width: 128,
+        height: 128,
+        colorDark : "#000000",
+        colorLight : "#ffffff",
+        correctLevel : QRCode.CorrectLevel.H
+    });
+  </script>
+</html>
