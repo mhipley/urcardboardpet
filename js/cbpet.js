@@ -4,7 +4,7 @@
 function init() {
   renderer = new THREE.WebGLRenderer();
   element = renderer.domElement;
-  container = document.getElementById('example');
+  container = document.getElementById('cbpet-body');
   container.appendChild(element);
 
   effect = new THREE.StereoEffect(renderer);
@@ -13,7 +13,8 @@ function init() {
 
   camera = new THREE.PerspectiveCamera(90, 1, 0.001, 700);
   camera.position.set(-30, 25, 0);
-  scene.add(camera);
+
+  // scene.add(camera);
 
   controls = new THREE.OrbitControls(camera, element);
   controls.rotateUp(Math.PI / 4);
@@ -268,8 +269,8 @@ function init() {
       (tuftWidth / 2 - 70)
     ));  
 
-  var shirtWidth = 57.5, shirtHeight = 30.1, shirtWidthS =1, shirtHeightS = 100;
-  scene.add(createSceneElement(
+  var shirtWidth = 57.5, shirtHeight = 30.1, shirtWidthS = 1, shirtHeightS = 100;
+  var shirt = createSceneElement(
       images.shirts,
       shirtWidth,
       shirtHeight,
@@ -279,7 +280,21 @@ function init() {
       40,
       (shirtHeight / 2 + 3),
       (shirtWidth / 2 - 30)
-    ));  
+    );
+  scene.add(shirt);
+
+
+  // Reticle
+  var geometry = new THREE.BoxGeometry(0.2, 0.2, 0.01);
+  var material = new THREE.MeshNormalMaterial();
+  var reticle = new THREE.Mesh(geometry, material);
+  
+  // Position reticle mesh
+  reticle.position.x = 0;
+  reticle.position.y = 0;
+  reticle.position.z = -10;
+  
+  camera.add(reticle);
 
   var hairWidth = 36.8, hairHeight = 35.5, hairWidthS =1, hairHeightS = 100;
   scene.add(createSceneElement(
@@ -901,7 +916,6 @@ function render(dt) {
 
 function animate(t) {
   requestAnimationFrame(animate);
-
   update(clock.getDelta());
   render(clock.getDelta());
 }
