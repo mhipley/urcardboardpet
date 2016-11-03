@@ -11,19 +11,43 @@ function CBMenu(){
     options: [
         {
           value: "hand",
-          texture: "textures/hand.png"
+          texture: "textures/hand.png",
+          weight_values: {
+            jock: 2,
+            goth: 1,
+            nerd: 3,
+            prep: -2
+          }
         },
         {
           value: "shirt",
-          texture: "textures/shirt.png"
+          texture: "textures/shirt.png",
+          weight_values: {
+            jock: 2,
+            goth: 1,
+            nerd: 3,
+            prep: -2
+          }
         },
         {
           value: "zz",
-          texture: "textures/zz.png"
+          texture: "textures/zz.png",
+          weight_values: {
+            jock: 2,
+            goth: 1,
+            nerd: 3,
+            prep: -2
+          }
         },
         {
           value: "tuft",
-          texture: "textures/tuft.png"
+          texture: "textures/tuft.png",
+          weight_values: {
+            jock: 2,
+            goth: 1,
+            nerd: 3,
+            prep: -2
+          }
         }
       ]
   };
@@ -32,82 +56,43 @@ function CBMenu(){
     options: [
         {
           value: "hand",
-          texture: "textures/hand.png"
+          texture: "textures/hand.png",
+          weight_values: {
+            jock: 2,
+            goth: 1,
+            nerd: 3,
+            prep: -2
+          }
         },
         {
           value: "shirt",
-          texture: "textures/shirt.png"
+          texture: "textures/shirt.png",
+          weight_values: {
+            jock: 2,
+            goth: 1,
+            nerd: 3,
+            prep: -2
+          }
         },
         {
           value: "zz",
-          texture: "textures/zz.png"
+          texture: "textures/zz.png",
+          weight_values: {
+            jock: 2,
+            goth: 1,
+            nerd: 3,
+            prep: -2
+          }
         },
         {
           value: "tuft",
-          texture: "textures/tuft.png"
-        }
-      ]
-  };
-  this.panel3 = {
-    query: "What is this example question?3",
-    options: [
-        {
-          value: "hand",
-          texture: "textures/hand.png"
-        },
-        {
-          value: "shirt",
-          texture: "textures/shirt.png"
-        },
-        {
-          value: "zz",
-          texture: "textures/zz.png"
-        },
-        {
-          value: "tuft",
-          texture: "textures/tuft.png"
-        }
-      ]
-  };
-  this.panel4 = {
-    query: "What is this example question?4",
-    options: [
-        {
-          value: "hand",
-          texture: "textures/hand.png"
-        },
-        {
-          value: "shirt",
-          texture: "textures/shirt.png"
-        },
-        {
-          value: "zz",
-          texture: "textures/zz.png"
-        },
-        {
-          value: "tuft",
-          texture: "textures/tuft.png"
-        }
-      ]
-  };
-  this.panel5 = {
-    query: "What is this example question?5",
-    options: [
-        {
-          value: "hand",
-          texture: "textures/hand.png"
-        },
-        {
-          value: "shirt",
-          texture: "textures/shirt.png"
-        },
-        {
-          value: "zz",
-          texture: "textures/zz.png"
-        },
-        {
-          value: "tuft",
-          texture: "textures/tuft.png"
+          texture: "textures/tuft.png",
+          weight_values: {
+            jock: 2,
+            goth: 1,
+            nerd: 3,
+            prep: -2
+          }
         }
       ]
   };
