@@ -24,7 +24,7 @@ function CBMenu(){
           texture: "textures/shirt.png",
           weight_values: {
             jock: 2,
-            goth: 1,
+            goth: 5,
             nerd: 3,
             prep: -2
           }
@@ -58,7 +58,7 @@ function CBMenu(){
           value: "hand",
           texture: "textures/hand.png",
           weight_values: {
-            jock: 2,
+            jock: 5,
             goth: 1,
             nerd: 3,
             prep: -2
@@ -97,12 +97,26 @@ function CBMenu(){
       ]
   };
   // Stored choices have keys of choiceX in relation to the corresponding panel and value
-  this.choices = {};
+  this.choices = {
+    jock: 0,
+    goth: 0,
+    nerd: 0,
+    prep: 0
+  };
 
   this.clickPanel = function(){
     // Store choice
-    Menu.choices['choice' + Menu.currentPanel] = $(this).attr('data-value');
-
+    var dataValue = $(this).attr('data-value');
+    var filterOptions = function(value){
+      return function(option){
+        return option.value == dataValue;
+      }
+    }
+    var weights = Menu['panel' + Menu.currentPanel].options.filter(filterOptions(dataValue))[0].weight_values;
+    var weightKeys = Object.keys(weights);
+    for(var i = 0; i < weightKeys.length; i++){
+      Menu.choices[weightKeys[i]] += weights[weightKeys[i]];
+    }
     // Set-up next set of choices
     Menu.currentPanel += 1;
     if(typeof Menu['panel' + Menu.currentPanel] == "undefined"){
@@ -124,11 +138,24 @@ function CBMenu(){
   this.complete = function(){
     // Take the choices and create a url for the Pet
     // Logic to determine choices and corresponding url values will need some work
+    var choices = this.choices;
+    var bf = Object.keys(choices).reduce(function(a, b){ 
+      return choices[a] > choices[b] ? a : b;
+    });
+    var secret_code = '';
 
+    switch(bf){
+      case 'nerd':
+        secret_code = 'results.html?q=abcd';
+        break;
+      default:
+        secret_code = 'index.html';
+        break;
+    }
     // For now, just loads the VR Pet with a random parameter
     $('#cbpet-body').show();
     $('#menu-body').remove();
-    window.location.search = 'q=cat';
+    window.location = secret_code;
   };
 
   // Initialization
