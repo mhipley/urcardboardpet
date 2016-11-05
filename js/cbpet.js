@@ -26,6 +26,8 @@ function init() {
   controls.noZoom = true;
   controls.noPan = true;
 
+  THREE.ImageUtils.crossOrigin = '';
+
   function setOrientationControls(e) {
     if (!e.alpha) {
       return;
