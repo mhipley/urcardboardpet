@@ -7,11 +7,11 @@ function CBMenu(){
 
   this.currentPanel = 1;
   this.panel1 = {
-    query: "What is this example question?1",
+    query: "Who's your favorite eevee evolution?",
     options: [
         {
-          value: "hand",
-          texture: "textures/hand.png",
+          value: "flareon",
+          texture: "textures/questions/q1o1.gif",
           weight_values: {
             twink: 0,
             softboi: 0,
@@ -21,8 +21,8 @@ function CBMenu(){
           }
         },
         {
-          value: "shirt",
-          texture: "textures/shirt.png",
+          value: "jolteon",
+          texture: "textures/questions/q1o2.gif",
           weight_values: {
             twink: 0,
             softboi: 0,
@@ -32,8 +32,8 @@ function CBMenu(){
           }
         },
         {
-          value: "zz",
-          texture: "textures/zz.png",
+          value: "vaporeon",
+          texture: "textures/questions/q1o3.gif",
           weight_values: {
             twink: 0,
             softboi: 0,
@@ -43,8 +43,8 @@ function CBMenu(){
           }
         },
         {
-          value: "tuft",
-          texture: "textures/tuft.png",
+          value: "psyduck",
+          texture: "textures/questions/q1o4.gif",
           weight_values: {
             twink: 0,
             softboi: 0,
@@ -86,6 +86,10 @@ function CBMenu(){
     } else {
       Menu.setPanel(Menu['panel' + Menu.currentPanel]);
     }
+
+    var elm = document.getElementById("menu-question");
+    var newone = elm.cloneNode(true);
+    elm.parentNode.replaceChild(newone, elm);
   }
   this.setPanel = function(panelData){
     var menuOptions = $('.menu-option');
@@ -152,4 +156,7 @@ function CBMenu(){
   $('#menu-body').show();
   $('#cbpet-body').hide();
   $('.menu-option').click(this.clickPanel);
+  
+
+
 }

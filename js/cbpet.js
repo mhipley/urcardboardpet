@@ -26,6 +26,8 @@ function init() {
   controls.noZoom = true;
   controls.noPan = true;
 
+  THREE.ImageUtils.crossOrigin = '';
+
   function setOrientationControls(e) {
     if (!e.alpha) {
       return;
@@ -78,6 +80,7 @@ function init() {
 
   function imagesFromUrl(data){
     // return an object with all the approriate images. For random, include all
+
     // For presentation, need to add new elements on the end of each array.
     // Twink
     // body: hands: hairs: shirts:
@@ -91,12 +94,12 @@ function init() {
     // body: hands: hairs: shirts:
     var hands = ["./textures/hands/hand1.png","./textures/hands/hand2.png"];
     var tufts = ["./textures/tuft/tuft1.png","./textures/tuft/tuft2.png","./textures/tuft/tuft3.png"];
-    var shirts = ["./textures/shirts/shirt1.png","./textures/shirts/shirt2.png"];
-    var hairs = ["./textures/hair/hair1.png","./textures/hair/hair2.png","./textures/hair/hair3.png"];
+    var shirts = ["./textures/shirts/fuckboi_shirt.png"];
+    var hairs = ["./textures/hair/boi_hair_01.png","./textures/hair/boi_hair_02.png","./textures/hair/twink_hair_03.png"];
     var eyebrows = ["./textures/eyebrows.png"];
     var texts = ["./textures/text/text1.png","./textures/text/text2.png","./textures/text/text3.png","./textures/text/text4.png"];
     var eyes = ["./textures/eyes.gif"];
-    var body = ["./textures/body.png"];
+    var body = ["./textures/body/fuckboi_body.png"];
     var bGImages = ["./textures/backgrounds/background1.png","./textures/backgrounds/background2.png"];
     if(typeof data == "undefined"){
       return {
@@ -267,18 +270,18 @@ function init() {
   hand.name = "hand";
   scene.add(hand);
 
-  var tuftWidth = 20, tuftHeight = 17.2, tuftWidthS =1, tuftHeightS = 100;
-  scene.add(createSceneElement(
-      images.tufts,
-      tuftWidth,
-      tuftHeight,
-      tuftWidthS,
-      tuftHeightS,
-      (Math.PI / 2),
-      90,
-      (tuftHeight / 2 + 20),
-      (tuftWidth / 2 - 70)
-    ));  
+  // var tuftWidth = 20, tuftHeight = 17.2, tuftWidthS =1, tuftHeightS = 100;
+  // scene.add(createSceneElement(
+  //     images.tufts,
+  //     tuftWidth,
+  //     tuftHeight,
+  //     tuftWidthS,
+  //     tuftHeightS,
+  //     (Math.PI / 2),
+  //     90,
+  //     (tuftHeight / 2 + 20),
+  //     (tuftWidth / 2 - 70)
+  //   ));  
 
   var shirtWidth = 57.5, shirtHeight = 30.1, shirtWidthS = 1, shirtHeightS = 100;
   var shirt = createSceneElement(
@@ -321,32 +324,32 @@ function init() {
     ));  
 
 
-  var eyebrowsWidth = 20.9, eyebrowsHeight = 2.6, eyebrowsWidthS = 1, eyebrowsHeightS = 100;
-  scene.add(createSceneElement(
-      images.eyebrows,
-      eyebrowsWidth,
-      eyebrowsHeight,
-      eyebrowsWidthS,
-      eyebrowsHeightS,
-      (- Math.PI / 2),
-      40,
-      (eyebrowsHeight / 2 + 54.5),
-      (eyebrowsWidth / 2 - 14.1)
-    ));  
+  // var eyebrowsWidth = 20.9, eyebrowsHeight = 2.6, eyebrowsWidthS = 1, eyebrowsHeightS = 100;
+  // scene.add(createSceneElement(
+  //     images.eyebrows,
+  //     eyebrowsWidth,
+  //     eyebrowsHeight,
+  //     eyebrowsWidthS,
+  //     eyebrowsHeightS,
+  //     (- Math.PI / 2),
+  //     40,
+  //     (eyebrowsHeight / 2 + 54.5),
+  //     (eyebrowsWidth / 2 - 14.1)
+  //   ));  
 
 
-  var eyesWidth = 19.2, eyesHeight = 3.5, eyesWidthS =1, eyesHeightS = 100;
-  scene.add(createSceneElement(
-      images.eyes,
-      eyesWidth,
-      eyesHeight,
-      eyesWidthS,
-      eyesHeightS,
-      (- Math.PI / 2),
-      40,
-      (eyesHeight / 2 + 52),
-      (eyesWidth / 2 - 13.1)
-    ));  
+  // var eyesWidth = 19.2, eyesHeight = 3.5, eyesWidthS =1, eyesHeightS = 100;
+  // scene.add(createSceneElement(
+  //     images.eyes,
+  //     eyesWidth,
+  //     eyesHeight,
+  //     eyesWidthS,
+  //     eyesHeightS,
+  //     (- Math.PI / 2),
+  //     40,
+  //     (eyesHeight / 2 + 52),
+  //     (eyesWidth / 2 - 13.1)
+  //   ));  
 
 
   var bodyWidth = 54.3, bodyHeight = 70.9, bodyWidthS =1, bodyHeightS = 100;
