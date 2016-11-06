@@ -78,6 +78,17 @@ function init() {
 
   function imagesFromUrl(data){
     // return an object with all the approriate images. For random, include all
+    // For presentation, need to add new elements on the end of each array.
+    // Twink
+    // body: hands: hairs: shirts:
+    // Softboi
+    // body: hands: hairs: shirts:
+    // Fuckboi
+    // body: hands: hairs: shirts:
+    // Goth
+    // body: hands: hairs: shirts:
+    // Chubbie
+    // body: hands: hairs: shirts:
     var hands = ["./textures/hands/hand1.png","./textures/hands/hand2.png"];
     var tufts = ["./textures/tuft/tuft1.png","./textures/tuft/tuft2.png","./textures/tuft/tuft3.png"];
     var shirts = ["./textures/shirts/shirt1.png","./textures/shirts/shirt2.png"];

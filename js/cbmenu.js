@@ -13,95 +13,56 @@ function CBMenu(){
           value: "hand",
           texture: "textures/hand.png",
           weight_values: {
-            jock: 2,
-            goth: 1,
-            nerd: 3,
-            prep: -2
+            twink: 0,
+            softboi: 0,
+            fuckboi: 0,
+            goth: 0,
+            chubbie: 0
           }
         },
         {
           value: "shirt",
           texture: "textures/shirt.png",
           weight_values: {
-            jock: 2,
-            goth: 5,
-            nerd: 3,
-            prep: -2
+            twink: 0,
+            softboi: 0,
+            fuckboi: 0,
+            goth: 0,
+            chubbie: 0
           }
         },
         {
           value: "zz",
           texture: "textures/zz.png",
           weight_values: {
-            jock: 2,
-            goth: 1,
-            nerd: 3,
-            prep: -2
+            twink: 0,
+            softboi: 0,
+            fuckboi: 0,
+            goth: 0,
+            chubbie: 0
           }
         },
         {
           value: "tuft",
           texture: "textures/tuft.png",
           weight_values: {
-            jock: 2,
-            goth: 1,
-            nerd: 3,
-            prep: -2
+            twink: 0,
+            softboi: 0,
+            fuckboi: 0,
+            goth: 0,
+            chubbie: 0
           }
         }
       ]
   };
-  this.panel2 = {
-    query: "What is this example question?2",
-    options: [
-        {
-          value: "hand",
-          texture: "textures/hand.png",
-          weight_values: {
-            jock: 5,
-            goth: 1,
-            nerd: 3,
-            prep: -2
-          }
-        },
-        {
-          value: "shirt",
-          texture: "textures/shirt.png",
-          weight_values: {
-            jock: 2,
-            goth: 1,
-            nerd: 3,
-            prep: -2
-          }
-        },
-        {
-          value: "zz",
-          texture: "textures/zz.png",
-          weight_values: {
-            jock: 2,
-            goth: 1,
-            nerd: 3,
-            prep: -2
-          }
-        },
-        {
-          value: "tuft",
-          texture: "textures/tuft.png",
-          weight_values: {
-            jock: 2,
-            goth: 1,
-            nerd: 3,
-            prep: -2
-          }
-        }
-      ]
-  };
+
   // Stored choices have keys of choiceX in relation to the corresponding panel and value
   this.choices = {
-    jock: 0,
+    twink: 0,
+    softboi: 0,
+    fuckboi: 0,
     goth: 0,
-    nerd: 0,
-    prep: 0
+    chubbie: 0
   };
 
   this.clickPanel = function(){
@@ -143,13 +104,39 @@ function CBMenu(){
       return choices[a] > choices[b] ? a : b;
     });
     var secret_code = '';
-
+    var bf_url = '';
     switch(bf){
-      case 'nerd':
-        secret_code = 'results.html?q=abcd';
+      // Hands
+      // Tufts
+      // Shirts
+      // Hairs
+      // Eyebrows
+      // Texts
+      // Eyes
+      // Body
+      // bGImages
+      
+      case 'twink':
+        // Two shirts, 3 hairs
+
+        bf_url = 'results.html?q=' + secret_code;
+        break;
+      case 'softboi':
+        // Two hairs
+        bf_url = 'results.html?q=' + secret_code;
+        break;
+      case 'fuckboi':
+        // Two hairs
+        bf_url = 'results.html?q=' + secret_code;
+        break;
+      case 'goth':
+        bf_url = 'results.html?q=' + secret_code;
+        break;
+      case 'chubbie':
+        bf_url = 'results.html?q=' + secret_code;
         break;
       default:
-        secret_code = 'index.html';
+        bf_url = 'index.html';
         break;
     }
     // For now, just loads the VR Pet with a random parameter
@@ -157,7 +144,9 @@ function CBMenu(){
     $('#menu-body').remove();
     window.location = secret_code;
   };
-
+  this.randomElement = function(array){
+    return array[Math.floor(Math.random() * array.length)];
+  };
   // Initialization
   this.setPanel(this.panel1);
   $('#menu-body').show();
