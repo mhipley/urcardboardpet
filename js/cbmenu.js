@@ -111,32 +111,60 @@ function CBMenu(){
     var bf_url = '';
     switch(bf){
       // Hands
-      // Tufts a-c
       // Shirts 
       // Hairs 
-      // Eyebrows a
       // Texts 
-      // Eyes a
       // Body
       // bGImages a-c
       
       case 'twink':
         // Two shirts, 3 hairs
-
+        secret_code += 'c' // Hands
+        secret_code += this.randomTexture(['a','b']); // Shirts
+        secret_code += this.randomTexture(['c','d','e']); // Hairs
+        secret_code += this.randomTexture(['a','b','c','d']); // Texts
+        secret_code += 'a' // Body
+        secret_code += this.randomTexture(['a','b','c']); // Background images
         bf_url = 'results.html?q=' + secret_code;
         break;
       case 'softboi':
         // Two hairs
+        secret_code += 'd' // Hands
+        secret_code += 'c'; // Shirts
+        secret_code += this.randomTexture(['a','b']); // Hairs
+        secret_code += this.randomTexture(['a','b','c','d']); // Texts
+        secret_code += 'b' // Body
+        secret_code += this.randomTexture(['a','b','c']); // Background images
         bf_url = 'results.html?q=' + secret_code;
         break;
       case 'fuckboi':
         // Two hairs
+        secret_code += 'e' // Hands
+        secret_code += 'd'; // Shirts
+        secret_code += this.randomTexture(['a','b']); // Hairs
+        secret_code += this.randomTexture(['a','b','c','d']); // Texts
+        secret_code += 'c' // Body
+        secret_code += this.randomTexture(['a','b','c']); // Background images
         bf_url = 'results.html?q=' + secret_code;
         break;
       case 'goth':
+        // No hair
+        secret_code += 'f' // Hands
+        secret_code += 'e'; // Shirts
+        secret_code += '_'; // Hairs
+        secret_code += this.randomTexture(['a','b','c','d']); // Texts
+        secret_code += 'd' // Body
+        secret_code += this.randomTexture(['a','b','c']); // Background images
         bf_url = 'results.html?q=' + secret_code;
         break;
       case 'chubbie':
+        // No hair
+        secret_code += 'g' // Hands
+        secret_code += 'f'; // Shirts
+        secret_code += '_'; // Hairs
+        secret_code += this.randomTexture(['a','b','c','d']); // Texts
+        secret_code += 'e' // Body
+        secret_code += this.randomTexture(['a','b','c']); // Background images
         bf_url = 'results.html?q=' + secret_code;
         break;
       default:
@@ -146,9 +174,9 @@ function CBMenu(){
     // For now, just loads the VR Pet with a random parameter
     $('#cbpet-body').show();
     $('#menu-body').remove();
-    window.location = secret_code;
+    window.location = bf_url;
   };
-  this.randomElement = function(array){
+  this.randomTexture = function(array){
     return array[Math.floor(Math.random() * array.length)];
   };
   // Initialization

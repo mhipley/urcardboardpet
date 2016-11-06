@@ -83,33 +83,27 @@ function init() {
 
     // For presentation, need to add new elements on the end of each array.
     // Twink
-    // body: hands: hairs: shirts:
+    // body: 0 hands: 2 hairs: 2,3,4 shirts: 0,1
     // Softboi
-    // body: hands: hairs: shirts:
+    // body: 1 hands: 3 hairs: 0,1 shirts: 2
     // Fuckboi
-    // body: hands: hairs: shirts:
+    // body: 2 hands: 4 hairs: 0,1 shirts: 3
     // Goth
-    // body: hands: hairs: shirts:
+    // body: 3 hands: 5 hairs: None shirts: 4 
     // Chubbie
-    // body: hands: hairs: shirts:
-    var hands = ["./textures/hands/hand1.png","./textures/hands/hand2.png"];
-    var tufts = ["./textures/tuft/tuft1.png","./textures/tuft/tuft2.png","./textures/tuft/tuft3.png"];
-    var shirts = ["./textures/shirts/fuckboi_shirt.png"];
-    var hairs = ["./textures/hair/boi_hair_01.png","./textures/hair/boi_hair_02.png","./textures/hair/twink_hair_03.png"];
-    var eyebrows = ["./textures/eyebrows.png"];
+    // body: 4 hands: 6 hairs: None shirts: 5
+    var hands = ["./textures/hands/hand1.png","./textures/hands/hand2.png","./textures/hands/twink_hand.png","./textures/hands/softboi_hand.png","./textures/hands/fuckboi_hand.png","./textures/hands/goth_hand.png","./textures/hands/chubbie_hand.png"];
+    var shirts = ["./textures/shirts/twink_shirt_01.png","./textures/shirts/twink_shirt_02.png","./textures/shirts/softboi_shirt.png","./textures/shirts/fuckboi_shirt.png","./textures/shirts/goth_shirt.png","./textures/shirts/chubbie_shirt.png"];
+    var hairs = ["./textures/hair/boi_hair_01.png","./textures/hair/boi_hair_02.png","./textures/hair/twink_hair_01.png","./textures/hair/twink_hair_02.png","./textures/hair/twink_hair_03.png"];
     var texts = ["./textures/text/text1.png","./textures/text/text2.png","./textures/text/text3.png","./textures/text/text4.png"];
-    var eyes = ["./textures/eyes.gif"];
-    var body = ["./textures/body/fuckboi_body.png"];
+    var body = ["./textures/body/twink_body.png","./textures/body/softboi_body.png","./textures/body/fuckboi_body.png","./textures/body/goth_body.png","./textures/body/chubbie_body.png"];
     var bGImages = ["./textures/backgrounds/background1.png","./textures/backgrounds/background2.png"];
     if(typeof data == "undefined"){
       return {
         hands: hands,
-        tufts: tufts,
         shirts: shirts,
         hairs: hairs,
-        eyebrows: eyebrows,
         texts: texts,
-        eyes: eyes,
         body: body,
         bGImages: bGImages
       }
@@ -117,14 +111,11 @@ function init() {
     try {
       var images =  {
         hands: [hands[data.charCodeAt(0) - 97]],
-        tufts: [tufts[data.charCodeAt(1) - 97]],
         shirts: [shirts[data.charCodeAt(2) - 97]],
         hairs: [hairs[data.charCodeAt(3) - 97]],
-        eyebrows: [eyebrows[data.charCodeAt(4) - 97]],
-        texts: [texts[data.charCodeAt(5) - 97]],
-        eyes: [eyes[data.charCodeAt(6) - 97]],
-        body: [body[data.charCodeAt(7) - 97]],
-        bGImages: [bGImages[data.charCodeAt(8) - 97]]
+        texts: [texts[data.charCodeAt(4) - 97]],
+        body: [body[data.charCodeAt(5) - 97]],
+        bGImages: [bGImages[data.charCodeAt(6) - 97]]
       };
       for(var key in images){
         if(typeof images[key][0] == "undefined"){
@@ -138,8 +129,13 @@ function init() {
   }
 
   function createSceneElement(textureArray, width, height, widthSegment, heightSegment, rotation, x, y, z){
-    // debugger;
-    var texture = textureArray[Math.floor(Math.random() * textureArray.length)];
+    
+    // try and catch for no texture. some models don't have hair
+    try {
+      var texture = textureArray[Math.floor(Math.random() * textureArray.length)];
+    } catch(e){
+      return;
+    }
     var sceneGeometry = new THREE.PlaneGeometry(width, height, widthSegment, heightSegment);
     var mesh = new THREE.MeshBasicMaterial();
     mesh.map = new THREE.ImageUtils.loadTexture(texture);
