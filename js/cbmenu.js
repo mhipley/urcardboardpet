@@ -151,7 +151,7 @@ function CBMenu(){
         // No hair
         secret_code += 'f' // Hands
         secret_code += 'e'; // Shirts
-        secret_code += '_'; // Hairs
+        secret_code += 'f'; // Hairs
         secret_code += this.randomTexture(['a','b','c','d']); // Texts
         secret_code += 'd' // Body
         secret_code += this.randomTexture(['a','b','c']); // Background images
@@ -161,7 +161,7 @@ function CBMenu(){
         // No hair
         secret_code += 'g' // Hands
         secret_code += 'f'; // Shirts
-        secret_code += '_'; // Hairs
+        secret_code += 'f'; // Hairs
         secret_code += this.randomTexture(['a','b','c','d']); // Texts
         secret_code += 'e' // Body
         secret_code += this.randomTexture(['a','b','c']); // Background images

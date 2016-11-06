@@ -89,12 +89,12 @@ function init() {
     // Fuckboi
     // body: 2 hands: 4 hairs: 0,1 shirts: 3
     // Goth
-    // body: 3 hands: 5 hairs: None shirts: 4 
+    // body: 3 hands: 5 hairs: 5(none) shirts: 4 
     // Chubbie
-    // body: 4 hands: 6 hairs: None shirts: 5
+    // body: 4 hands: 6 hairs: 5(none) shirts: 5
     var hands = ["./textures/hands/hand1.png","./textures/hands/hand2.png","./textures/hands/twink_hand.png","./textures/hands/softboi_hand.png","./textures/hands/fuckboi_hand.png","./textures/hands/goth_hand.png","./textures/hands/chubbie_hand.png"];
     var shirts = ["./textures/shirts/twink_shirt_01.png","./textures/shirts/twink_shirt_02.png","./textures/shirts/softboi_shirt.png","./textures/shirts/fuckboi_shirt.png","./textures/shirts/goth_shirt.png","./textures/shirts/chubbie_shirt.png"];
-    var hairs = ["./textures/hair/boi_hair_01.png","./textures/hair/boi_hair_02.png","./textures/hair/twink_hair_01.png","./textures/hair/twink_hair_02.png","./textures/hair/twink_hair_03.png"];
+    var hairs = ["./textures/hair/boi_hair_01.png","./textures/hair/boi_hair_02.png","./textures/hair/twink_hair_01.png","./textures/hair/twink_hair_02.png","./textures/hair/twink_hair_03.png","./textures/none.png"];
     var texts = ["./textures/text/text1.png","./textures/text/text2.png","./textures/text/text3.png","./textures/text/text4.png"];
     var body = ["./textures/body/twink_body.png","./textures/body/softboi_body.png","./textures/body/fuckboi_body.png","./textures/body/goth_body.png","./textures/body/chubbie_body.png"];
     var bGImages = ["./textures/backgrounds/background1.png","./textures/backgrounds/background2.png"];
