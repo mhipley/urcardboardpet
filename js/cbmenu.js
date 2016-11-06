@@ -111,14 +111,14 @@ function CBMenu(){
     var bf_url = '';
     switch(bf){
       // Hands
-      // Tufts
-      // Shirts
-      // Hairs
-      // Eyebrows
-      // Texts
-      // Eyes
+      // Tufts a-c
+      // Shirts 
+      // Hairs 
+      // Eyebrows a
+      // Texts 
+      // Eyes a
       // Body
-      // bGImages
+      // bGImages a-c
       
       case 'twink':
         // Two shirts, 3 hairs
