@@ -25,19 +25,11 @@
   <script src="js/third-party/qrcode.js"></script>
   <script>
     var search = location.search.split('=')[1];
-    var text = '';
-    switch(search){
-      case 'abcd':
-        text = 'some_dude'
-        break;
-      default:
-        text = 'home'
-        break;
-    }
-    $("#url").attr('href','index.html').text(text);
+    var bf_url = 'index.html?q=' + search;
+    $("#url").attr('href', bf_url).text('Ur Boyfriend Awaits');
     
     var qrcode = new QRCode("qrcode", {
-        text: text,
+        text: bf_url,
         width: 128,
         height: 128,
         colorDark : "#000000",
