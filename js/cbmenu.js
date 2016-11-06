@@ -171,7 +171,7 @@ function CBMenu(){
         bf_url = 'index.html';
         break;
     }
-    
+
     // For now, just loads the VR Pet with a random parameter
     $('#cbpet-body').show();
     $('#menu-body').remove();

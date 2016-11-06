@@ -98,6 +98,7 @@ function init() {
     var texts = ["./textures/text/text1.png","./textures/text/text2.png","./textures/text/text3.png","./textures/text/text4.png"];
     var body = ["./textures/body/twink_body.png","./textures/body/softboi_body.png","./textures/body/fuckboi_body.png","./textures/body/goth_body.png","./textures/body/chubbie_body.png"];
     var bGImages = ["./textures/backgrounds/background1.png","./textures/backgrounds/background2.png"];
+    
     if(typeof data == "undefined"){
       return {
         hands: hands,
@@ -111,11 +112,11 @@ function init() {
     try {
       var images =  {
         hands: [hands[data.charCodeAt(0) - 97]],
-        shirts: [shirts[data.charCodeAt(2) - 97]],
-        hairs: [hairs[data.charCodeAt(3) - 97]],
-        texts: [texts[data.charCodeAt(4) - 97]],
-        body: [body[data.charCodeAt(5) - 97]],
-        bGImages: [bGImages[data.charCodeAt(6) - 97]]
+        shirts: [shirts[data.charCodeAt(1) - 97]],
+        hairs: [hairs[data.charCodeAt(2) - 97]],
+        texts: [texts[data.charCodeAt(3) - 97]],
+        body: [body[data.charCodeAt(4) - 97]],
+        bGImages: [bGImages[data.charCodeAt(5) - 97]]
       };
       for(var key in images){
         if(typeof images[key][0] == "undefined"){
